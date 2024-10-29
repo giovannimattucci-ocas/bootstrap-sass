@@ -210,6 +210,14 @@
   var clickHandler = function (e) {
     var $this   = $(this)
     var href    = $this.attr('href')
+
+    // Check if the href contains a "javascript:" scheme and block it
+    if (href && href.toLowerCase().startsWith('javascript:')) {
+      console.warn('Blocked potential XSS attack via javascript href');
+      e.preventDefault(); // Prevent the default behavior
+      return; // Exit the function
+    }
+
     if (href) {
       href = href.replace(/.*(?=#[^\s]+$)/, '') // strip for ie7
     }
