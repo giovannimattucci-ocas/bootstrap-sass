@@ -1,5 +1,5 @@
 /* ========================================================================
- * Bootstrap: carousel.js v3.4.1
+ * Bootstrap: carousel.js v3.5.0
  * https://getbootstrap.com/docs/3.4/javascript/#carousel
  * ========================================================================
  * Copyright 2011-2019 Twitter, Inc.
@@ -30,7 +30,7 @@
       .on('mouseleave.bs.carousel', $.proxy(this.cycle, this))
   }
 
-  Carousel.VERSION  = '3.4.1'
+  Carousel.VERSION  = '3.5.0'
 
   Carousel.TRANSITION_DURATION = 600
 
@@ -213,9 +213,8 @@
 
     // Check if the href contains a "javascript:" scheme and block it
     if (href && href.toLowerCase().startsWith('javascript:')) {
-      console.warn('Blocked potential XSS attack via javascript href');
       e.preventDefault(); // Prevent the default behavior
-      return; // Exit the function
+      return;
     }
 
     if (href) {
